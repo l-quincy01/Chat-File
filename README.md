@@ -1,3 +1,3 @@
-# Doc-Parser
+# Chat-File
 
-A simple python program that parses various doc formats to text
+Chat with any file format
