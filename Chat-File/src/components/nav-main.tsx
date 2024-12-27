@@ -18,21 +18,25 @@ import {
 } from "@/components/ui/sidebar";
 
 import { ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router";
 
 export function NavMain({
   items,
 }: {
   items: {
     date: string;
-    resourceID: string;
 
     isActive?: boolean;
     items?: {
+      resourceID: string;
       title: string;
       url: string;
     }[];
   }[];
 }) {
+  const [activeResource, setActiveResource] = useState<string>();
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Chats</SidebarGroupLabel>
@@ -41,7 +45,7 @@ export function NavMain({
           <Collapsible
             key={item.date}
             asChild
-            defaultOpen={item.isActive}
+            defaultOpen={false}
             className="group/collapsible"
           >
             <SidebarMenuItem>
@@ -55,16 +59,31 @@ export function NavMain({
               <CollapsibleContent>
                 <SidebarMenuSub>
                   {item.items?.map((subItem) => (
-                    <SidebarMenuSubItem key={subItem.title}>
-                      <SidebarMenuSubButton asChild>
-                        <a href={subItem.url}>
-                          <span className="w-[16ch] truncate">
-                            {subItem.title}
-                          </span>
-                          <ChatDropDown resourceID={item.resourceID} />
-                        </a>
-                      </SidebarMenuSubButton>
-                    </SidebarMenuSubItem>
+                    <Link
+                      // to={`/chat/${subItem.resourceID}`}
+                      to={`/chat`}
+                      onClick={() => {
+                        setActiveResource(subItem.resourceID);
+                      }}
+                    >
+                      <SidebarMenuSubItem key={subItem.title}>
+                        <SidebarMenuSubButton
+                          asChild
+                          className={`${
+                            activeResource === subItem.resourceID
+                              ? "bg-gray-100"
+                              : ""
+                          }`}
+                        >
+                          <a href={subItem.url}>
+                            <span className="w-[16ch] truncate">
+                              {subItem.title}
+                            </span>
+                            <ChatDropDown resourceID={subItem.resourceID} />
+                          </a>
+                        </SidebarMenuSubButton>
+                      </SidebarMenuSubItem>
+                    </Link>
                   ))}
                 </SidebarMenuSub>
               </CollapsibleContent>

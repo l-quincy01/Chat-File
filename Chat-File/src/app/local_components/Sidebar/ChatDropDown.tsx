@@ -39,7 +39,8 @@ export default function ChatDropDown({ resourceID }: Props) {
       >
         <DropdownMenuItem>
           <Link
-            to={`/chat/${resourceID}`}
+            // to={`/chat/${resourceID}`}
+            to={`/chat`}
             className="flex flex-row items-center gap-x-2 "
           >
             <MessageCircleMore className="text-muted-foreground" />
@@ -49,7 +50,8 @@ export default function ChatDropDown({ resourceID }: Props) {
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <Link
-            to={`/summary/${resourceID}`}
+            // to={`/summary/${resourceID}`}
+            to={`/summary`}
             className="flex flex-row items-center gap-x-2 "
           >
             <Text className="text-muted-foreground" />
@@ -59,7 +61,8 @@ export default function ChatDropDown({ resourceID }: Props) {
         <DropdownMenuSeparator />
         <DropdownMenuItem>
           <Link
-            to={`/mind-map/${resourceID}`}
+            // to={`/mind-map/${resourceID}`}
+            to={`/mind-map`}
             className="flex flex-row items-center gap-x-2 "
           >
             <Workflow className="text-muted-foreground" />
