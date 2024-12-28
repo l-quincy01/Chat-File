@@ -24,20 +24,16 @@ interface Props {
 
 export default function SummaryTable({ data }: Props) {
   const [showDelete, setShowDelete] = useState(false);
+  const [isSelected, setIsSelected] = useState(false);
   const [selectedItems, setSelectedItems] = useState<number[]>([]);
 
   useEffect(() => {
-    setShowDelete(selectedItems.length > 0);
+    if (selectedItems.length > 0) {
+      setShowDelete(true);
+    } else {
+      setShowDelete(false);
+    }
   }, [selectedItems]);
-
-  const handleCheckboxChange = (index: number) => {
-    setSelectedItems(
-      (prev) =>
-        prev.includes(index)
-          ? prev.filter((item) => item !== index) // Remove if already selected
-          : [...prev, index] // Add if not selected
-    );
-  };
 
   return (
     <>
@@ -68,11 +64,13 @@ export default function SummaryTable({ data }: Props) {
               <TableCell className="w-full">
                 <div className="flex flex-row gap-x-4 items-center p-5 rounded-xl">
                   <Checkbox
-                    checked={selectedItems.includes(index)}
-                    onChange={() => handleCheckboxChange(index)}
+                    onClick={() => {
+                      setIsSelected(!isSelected);
+                      setSelectedItems((prev) => [...prev, index]);
+                    }}
                   />
                   <Link to={`/summary/${item.urlID}`}>
-                    {item.type}: {item.title}
+                    {item.type}:{item.title}
                   </Link>
                 </div>
               </TableCell>
