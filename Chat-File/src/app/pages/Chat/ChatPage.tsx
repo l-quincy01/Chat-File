@@ -1,7 +1,14 @@
+import ChatInterface from "../../local_components/Chat/ChatInterface";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ArrowUp, Copy, Send } from "lucide-react";
 
-const dummyChat = [
+import FileViewer from "react-file-viewer";
+
+import localFile from "../../assets/doclingReport.pdf";
+import "@cyntler/react-doc-viewer/dist/index.css";
+import DocViewer, { DocViewerRenderers } from "@cyntler/react-doc-viewer";
+
+const dummyChat: ChatGroup[] = [
   {
     chatID: "jhh",
     chat: [
@@ -20,7 +27,7 @@ const dummyChat = [
       {
         id: 3,
         sender: "user",
-        message: "Can you tell me about the weather?",
+        message: "Can you tell me about the weauyggjjhguytther?",
         timestamp: "2024-12-28T10:02:00Z",
       },
       {
@@ -46,75 +53,28 @@ const dummyChat = [
 ];
 
 export default function ChatPage() {
+  const file = "https://arxiv.org/pdf/2408.09869";
+  const type = "pdf";
+
+  const docs = [
+    { uri: "https://arxiv.org/pdf/2408.09869" }, // Remote file
+    { uri: localFile }, // Local file (adjust based on your setup)
+  ];
+
   return (
     <div className="w-full flex flex-row items-start justify-center h-[95%]">
-      {/* Left Panel */}
-      <div className="w-1/2 p-4 hidden lg:block">
-        <div className="p-4 flex flex-row gap-x-4 items-center shadow-md rounded-lg">
-          <input
-            placeholder="Type in your message"
-            type="text"
-            aria-multiline="true"
-            className="p-4 w-full border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
-          />
-          <Send className="cursor-pointer hover:text-blue-700" />
-        </div>
+      {/* Left  */}
+      <div className="w-1/2 flex flex-col border-l px-6 h-full">
+        <ScrollArea className="h-[600px] overflow-y-auto py-4">
+          <DocViewer documents={docs} pluginRenderers={DocViewerRenderers} />
+        </ScrollArea>
       </div>
 
       <div className="h-full w-px hidden "></div>
 
-      {/* Right Panel */}
+      {/* Right  */}
       <div className="w-1/2 flex flex-col border-l px-6 h-full">
-        <ScrollArea className="h-[600px] overflow-y-auto py-4">
-          {dummyChat.map((item) => (
-            <div key={item.chatID} className="flex flex-col gap-y-4">
-              {/* Chat Messages */}
-              {item.chat.map((message) => (
-                <div
-                  key={message.id}
-                  className={`max-w-[80%] ${
-                    message.sender === "user" ? "self-end" : "self-start"
-                  }`}
-                >
-                  <div
-                    id={
-                      message.sender === "user"
-                        ? "userChatBubble"
-                        : "botChatBubble"
-                    }
-                    className="text-sm p-4 rounded-xl "
-                  >
-                    <p>{message.message}</p>
-                  </div>
-                  {message.sender === "bot" && (
-                    <div className="flex justify-end mt-1">
-                      <Copy
-                        size={14}
-                        className="cursor-pointer hover:text-gray-700"
-                      />
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          ))}
-        </ScrollArea>
-
-        {/* Input Area */}
-        <div id="userChatBubble" className="flex flex-col rounded-xl">
-          <textarea
-            placeholder="Type in your message"
-            cols={4}
-            rows={2}
-            aria-multiline="true"
-            className="pr-12 pl-4 pb-6 pt-4 w-[95%] bg-transparent focus:outline-none resize-none"
-          ></textarea>
-          <div className="flex justify-end p-2 ">
-            <div className="cursor-pointer bg-white rounded-full p-2 ">
-              <ArrowUp size={12} color="black" />
-            </div>
-          </div>
-        </div>
+        <ChatInterface data={dummyChat} />
       </div>
     </div>
   );

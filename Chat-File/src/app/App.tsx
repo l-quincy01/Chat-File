@@ -14,7 +14,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/summary" element={<SummaryPage />} />
-          <Route path="/mindmap" element={<MindmapPage />} />
+          <Route path="/mind-map" element={<MindmapPage />} />
         </Route>
       </Routes>
     </>

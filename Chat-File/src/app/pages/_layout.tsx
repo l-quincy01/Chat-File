@@ -1,6 +1,6 @@
 import { Outlet } from "react-router";
 import { ThemeProvider } from "../context/ThemeProvider";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "../pages/AppSidebar";
 import Header from "../local_components/header";
 //import SidebarPage from "./AppSidebar";

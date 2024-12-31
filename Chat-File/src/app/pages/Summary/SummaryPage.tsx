@@ -1,27 +1,30 @@
-import SummaryTable from "@/app/local_components/Summary/SummaryTable";
+import ResourceTable from "@/app/local_components/Shared/ResourceTable";
 
 export default function SummaryPage() {
   const dummyData = [
     {
+      resourceID: "id011",
       title: "The Great Gatsby",
       type: "General Summary",
-      urlID: "gatsby",
+      url: "gatsby",
     },
     {
+      resourceID: "id019",
       title: "The Catcher in the Rye",
       type: "Terms and Definitions",
-      urlID: "catcher",
+      url: "catcher",
     },
     {
+      resourceID: "id017979",
       title: "To Kill a Mockingbird",
       type: "Descriptive Summary",
-      urlID: "mockingbird",
+      url: "mockingbird",
     },
   ];
 
   return (
     <div className="p-12">
-      <SummaryTable data={dummyData} />
+      <ResourceTable heading="Summary" data={dummyData} />
     </div>
   );
 }

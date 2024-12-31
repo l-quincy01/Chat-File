@@ -4,10 +4,17 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
+  
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
-  }
+  }, 
+
+    "include": ["src",
+    "src/app/local_components/file-viewer/declarations.d.ts"],
+
+
+
 }
