@@ -5,6 +5,8 @@ import Layout from "./pages/_layout";
 import ChatPage from "./pages/Chat/ChatPage";
 import SummaryPage from "./pages/Summary/SummaryPage";
 import MindmapPage from "./pages/Mindmap/MindmapPage";
+import SummaryView from "./pages/Summary/SummaryView";
+import MindmapView from "./pages/Mindmap/markmap-hooks";
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/summary" element={<SummaryPage />} />
           <Route path="/mind-map" element={<MindmapPage />} />
+          <Route path="/summary/:id" element={<SummaryView />} />
+          <Route path="/mindmap/:id" element={<MindmapView />} />
         </Route>
       </Routes>
     </>

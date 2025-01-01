@@ -6,6 +6,9 @@
   ],
   
   "compilerOptions": {
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+     "allowJs": true,
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

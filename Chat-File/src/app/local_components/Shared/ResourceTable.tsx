@@ -80,7 +80,13 @@ export default function ResourceTable({ heading, data }: Props) {
                     onChange={() => handleSelectedItems(item.resourceID)}
                     checked={selectedItems.includes(item.resourceID)}
                   />
-                  <Link to={`/summary/${item.url}`}>
+                  <Link
+                    to={
+                      heading === "Summary"
+                        ? `/summary/${item.url}`
+                        : `/mindmap/${item.url}`
+                    }
+                  >
                     {item.type}:{item.title}
                   </Link>
                 </div>

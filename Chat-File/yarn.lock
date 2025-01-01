@@ -3573,6 +3573,15 @@ markdown-it@^14.1.0:
     punycode.js "^2.3.1"
     uc.micro "^2.1.0"
 
+"markmap-common@0. 18. 4":
+  version "0.18.4"
+  resolved "https://registry.yarnpkg.com/markmap-common/-/markmap-common-0.18.4.tgz#6215f01df622601b7af01089a5e33833ebf04cfc"
+  integrity sha512-7fmKh/Eie8YtMutOr+//rm7/5DFbeATz3qkPTJJAgCCtUCodGn3hF7vn0TIXNs4DvaSuKUvk0JTPvSakzBlHeQ==
+  dependencies:
+    "@babel/runtime" "^7.22.6"
+    "@gera2ld/jsx-dom" "^2.2.2"
+    npm2url "^0.2.4"
+
 markmap-html-parser@0.18.4:
   version "0.18.4"
   resolved "https://registry.yarnpkg.com/markmap-html-parser/-/markmap-html-parser-0.18.4.tgz#dc7121a9312c7fdef905e0f1fc9e3bcca209aaa7"
@@ -3581,7 +3590,8 @@ markmap-html-parser@0.18.4:
     "@babel/runtime" "^7.22.6"
     cheerio "1.0.0"
 
-markmap-lib@^0.18.4:
+"markmap-lib @0.18.4":
+  name markmap-lib
   version "0.18.4"
   resolved "https://registry.yarnpkg.com/markmap-lib/-/markmap-lib-0.18.4.tgz#9cdec802104853140ec8515bbcdf42992857133f"
   integrity sha512-YOqMCWoceYf26KrKGD88oTRuuhsghtDeJd5qzmngdH0FbSLhXABG/B6tqivbjQ+Np2TpfF/VqifBS9i4ADQEgw==
@@ -3599,6 +3609,23 @@ markmap-lib@^0.18.4:
     markmap-view "0.18.4"
     prismjs "^1.29.0"
     yaml "^2.5.1"
+
+"markmap-render @0.18.4 ":
+  name markmap-render
+  version "0.18.4"
+  resolved "https://registry.yarnpkg.com/markmap-render/-/markmap-render-0.18.4.tgz#28f56a7ca8224539601cccfa64581e1d4c577ce8"
+  integrity sha512-XqS/wjTNUlSNabhmGa0pRjFggyfTkDXYfgpPBLrE/PHER82d8LLV6By6lb7fbuiSmZ/GuEhwDD7Dxoa0aQhHVA==
+  dependencies:
+    "@babel/runtime" "^7.22.6"
+    markmap-view "0.18.4"
+
+markmap-toolbar@^0.18.4:
+  version "0.18.4"
+  resolved "https://registry.yarnpkg.com/markmap-toolbar/-/markmap-toolbar-0.18.4.tgz#cfab73398af5763c8f2c19a237df8cce1a9530d0"
+  integrity sha512-VdwIWc5dNYsAHgTiGgG0kwiw7x9QExP0EanLSvp6pV48kx7qhuSiwhSZplWFOcwVXpJD/JYh37mvcZ1tB6Ycog==
+  dependencies:
+    "@babel/runtime" "^7.22.6"
+    "@gera2ld/jsx-dom" "^2.2.2"
 
 markmap-view@0.18.4:
   version "0.18.4"
@@ -3787,6 +3814,11 @@ normalize-range@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/normalize-range/-/normalize-range-0.1.2.tgz#2d10c06bdfd312ea9777695a4d28439456b75942"
   integrity sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==
+
+npm2url@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/npm2url/-/npm2url-0.2.4.tgz#50a4fa97eb1a39882cb598a1e92775a1f27a7910"
+  integrity sha512-arzGp/hQz0Ey+ZGhF64XVH7Xqwd+1Q/po5uGiBbzph8ebX6T0uvt3N7c1nBHQNsQVykQgHhqoRTX7JFcHecGuw==
 
 npmlog@^5.0.1:
   version "5.0.1"
