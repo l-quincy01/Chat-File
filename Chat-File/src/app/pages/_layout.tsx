@@ -6,8 +6,6 @@ import Header from "../local_components/header";
 //import SidebarPage from "./AppSidebar";
 
 export default function Layout() {
-  //const cookieStore = await cookies()
-
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <SidebarProvider>

@@ -1,10 +1,19 @@
-import "katex/dist/katex.min.css"; // `rehype-katex` does not import the CSS for you
+import "katex/dist/katex.min.css";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import { useEffect } from "react";
 import { useTheme } from "../../context/ThemeProvider";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
+import { Link } from "react-router";
 
 export default function SummaryView() {
-  const { theme } = useTheme(); // Assuming theme is "dark" or "light"
+  const { theme } = useTheme();
 
   useEffect(() => {
     document.documentElement.setAttribute("data-color-mode", theme);
@@ -69,7 +78,21 @@ export default function SummaryView() {
   console.log(source);
 
   return (
-    <div className="flex justify-center p-8">
+    <div className="flex flex-col gap-y-4 justify-center p-8">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <Link to={"/summary"}>
+              <BreadcrumbLink>Summaries</BreadcrumbLink>
+            </Link>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>[Name of summary]</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+
       <MarkdownPreview
         source={source}
         wrapperElement={{

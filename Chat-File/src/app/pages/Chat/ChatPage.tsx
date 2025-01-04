@@ -64,16 +64,16 @@ export default function ChatPage() {
   return (
     <div className="w-full flex flex-row items-start justify-center h-[95%]">
       {/* Left  */}
-      <div className="w-1/2 flex flex-col border-l px-6 h-full">
+      <div className="hidden md:block w-1/2 flex flex-col border-l px-6 h-full">
         <ScrollArea className="h-[600px] overflow-y-auto py-4">
           <DocViewer documents={docs} pluginRenderers={DocViewerRenderers} />
         </ScrollArea>
       </div>
 
-      <div className="h-full w-px hidden "></div>
+      <div className="h-full w-px hidden md:block  "></div>
 
       {/* Right  */}
-      <div className="w-1/2 flex flex-col border-l px-6 h-full">
+      <div className="md:w-1/2 w-full flex flex-col  px-6 h-full">
         <ChatInterface data={dummyChat} />
       </div>
     </div>

@@ -6,7 +6,7 @@ import ChatPage from "./pages/Chat/ChatPage";
 import SummaryPage from "./pages/Summary/SummaryPage";
 import MindmapPage from "./pages/Mindmap/MindmapPage";
 import SummaryView from "./pages/Summary/SummaryView";
-import MindmapView from "./pages/Mindmap/markmap-hooks";
+import MindmapView from "./pages/Mindmap/MindmapView";
 
 function App() {
   return (

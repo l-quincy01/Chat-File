@@ -4,13 +4,9 @@ import { transformer } from "./Markmap";
 import { Toolbar } from "markmap-toolbar";
 import "markmap-toolbar/dist/style.css";
 
-const initValue = `# markmap
-
-- beautiful
-- useful
-- easy
-- interactive
-`;
+interface markdownProps {
+  markdown: string;
+}
 
 function renderToolbar(mm: Markmap, wrapper: HTMLElement) {
   while (wrapper?.firstChild) wrapper.firstChild.remove();
@@ -29,8 +25,8 @@ function renderToolbar(mm: Markmap, wrapper: HTMLElement) {
   }
 }
 
-export default function MarkmapHooks() {
-  const [value, setValue] = useState(initValue);
+export default function MarkmapHooks({ markdown }: markdownProps) {
+  const [value, setValue] = useState(markdown);
   // Ref for SVG element
   const refSvg = useRef<SVGSVGElement>();
   // Ref for markmap object
@@ -56,20 +52,10 @@ export default function MarkmapHooks() {
     mm.fit();
   }, [refMm.current, value]);
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
-
   return (
     <React.Fragment>
-      <div className="flex-1">
-        <textarea
-          className="w-full h-full border border-gray-400"
-          value={value}
-          onChange={handleChange}
-        />
-      </div>
-      <svg className="flex-1 w-full h-full" ref={refSvg} />
+      <div className="flex-1"></div>
+      <svg className="flex-1 w-screen h-screen" ref={refSvg} />
       <div className="absolute bottom-1 right-1" ref={refToolbar}></div>
     </React.Fragment>
   );
