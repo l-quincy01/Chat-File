@@ -22,9 +22,5 @@ export default function SummaryPage() {
     },
   ];
 
-  return (
-    <div className="p-12">
-      <ResourceTable heading="Summary" data={dummyData} />
-    </div>
-  );
+  return <ResourceTable heading="Summary" data={dummyData} />;
 }

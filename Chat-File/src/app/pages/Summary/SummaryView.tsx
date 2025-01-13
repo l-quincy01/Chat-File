@@ -1,16 +1,20 @@
 import "katex/dist/katex.min.css";
 import MarkdownPreview from "@uiw/react-markdown-preview";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "../../context/ThemeProvider";
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
-import { Link } from "react-router";
+
+import TabNavigation from "@/app/local_components/Shared/TabNavigation";
+
+interface Tab {
+  tabName: string;
+  isActive: boolean;
+}
+const handleIsActive = (tabs: Tab[], index: number): Tab[] => {
+  return tabs.map((tabItem, i) => ({
+    ...tabItem,
+    isActive: i === index,
+  }));
+};
 
 export default function SummaryView() {
   const { theme } = useTheme();
@@ -77,28 +81,36 @@ export default function SummaryView() {
 
   console.log(source);
 
-  return (
-    <div className="flex flex-col gap-y-4 justify-center p-8">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <Link to={"/summary"}>
-              <BreadcrumbLink>Summaries</BreadcrumbLink>
-            </Link>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>[Name of summary]</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+  const [tabs, setTabs] = useState<Tab[]>([
+    { tabName: "Summary", isActive: true },
+    { tabName: "Summary Editor", isActive: false },
+  ]);
 
-      <MarkdownPreview
-        source={source}
-        wrapperElement={{
-          "data-color-mode": theme,
+  const handleTabClick = (index: number) => {
+    setTabs((prevTabs) => handleIsActive(prevTabs, index));
+  };
+
+  return (
+    <>
+      <TabNavigation
+        prop={{
+          prevURL: "summary",
+          prevTitle: "Summary",
+          currTitle: "The Catcher",
+          tabs,
         }}
+        onTabClick={handleTabClick}
       />
-    </div>
+
+      <div className="flex flex-col gap-y-4 justify-center pt-4">
+        <MarkdownPreview
+          className="rounded-lg "
+          source={source}
+          wrapperElement={{
+            "data-color-mode": theme,
+          }}
+        />
+      </div>
+    </>
   );
 }

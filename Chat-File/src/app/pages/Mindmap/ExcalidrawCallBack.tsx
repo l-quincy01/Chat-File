@@ -44,7 +44,7 @@ export default function ExcalidrawCallBack() {
   });
 
   return (
-    <div className="h-screen w-screen">
+    <div className="h-screen w-screen flex-grow">
       <ExcalidrawWrapper
         mermaidDefinition={deferredMermaidData.definition}
         mermaidOutput={deferredMermaidData.output}

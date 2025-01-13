@@ -21,7 +21,7 @@ export default function ExcalidrawWrapper({
 }: ExcalidrawWrapperProps) {
   const { theme } = useTheme();
 
-  const DEFAULT_FONT_SIZE = 20;
+  const DEFAULT_FONT_SIZE = 10;
 
   const [excalidrawAPI, setExcalidrawAPI] =
     useState<ExcalidrawImperativeAPI | null>(null);

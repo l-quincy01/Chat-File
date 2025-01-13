@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <div className="flex flex-col gap-y-20 justify-center items-center">
       <div>
-        <div className=" font-extrabold text-4xl mt-6">
+        <div className=" text-center font-extrabold text-4xl mt-6">
           Sumarise, Diagram and Chat With Any File Fomat{" "}
         </div>
         <div className="flex flex-col gap-y-2  text-lg font-semibold text-wrap text-center">

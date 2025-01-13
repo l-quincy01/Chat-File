@@ -134,7 +134,7 @@ const data = {
 //if collapsible icons { ...props }: React.ComponentProps<typeof Sidebar>
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar variant="floating">
       <SidebarHeader>
         <NavUser user={data.user} />
       </SidebarHeader>

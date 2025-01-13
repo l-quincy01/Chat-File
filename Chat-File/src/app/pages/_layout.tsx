@@ -13,7 +13,9 @@ export default function Layout() {
         <div className=" w-full ">
           <Header />
 
-          <Outlet />
+          <div className="px-8">
+            <Outlet />
+          </div>
         </div>
       </SidebarProvider>
     </ThemeProvider>

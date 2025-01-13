@@ -22,9 +22,5 @@ export default function MindmapPage() {
     },
   ];
 
-  return (
-    <div className="p-12">
-      <ResourceTable heading="Mind-Map" data={dummyData} />
-    </div>
-  );
+  return <ResourceTable heading="Mind-Map" data={dummyData} />;
 }
