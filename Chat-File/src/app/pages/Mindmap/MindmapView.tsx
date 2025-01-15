@@ -30,17 +30,6 @@ export default function MindmapView() {
   - **Use**: Query the sum of elements in a subarray efficiently when there are multiple queries.
   - **Example Problems**: [Range Sum Query](https://leetcode.com/problems/range-sum-query-immutable/), [Subarray Sum Equals K](https://leetcode.com/problems/subarray-sum-equals-k/)
   
-  \`\`\`python
-  # Prefix Sum Example
-  nums = [1, 2, 3, 4, 5]
-  prefix_sum = [0] * (len(nums) + 1)
-  for i in range(len(nums)):
-      prefix_sum[i + 1] = prefix_sum[i] + nums[i]
-  
-  # Query sum of elements from index 1 to 3
-  sum_1_to_3 = prefix_sum[4] - prefix_sum[1]
-  print(sum_1_to_3)  # Output: 9 (2 + 3 + 4)
-  \`\`\`
   `;
 
   const handleTabClick = (index: number) => {

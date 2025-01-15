@@ -5,6 +5,9 @@
 /* textarea{
   @apply dark:bg-neutral-900 bg-gray-100;
 } */
+
+
+
 #userChatBubble {
   @apply dark:bg-neutral-900 bg-gray-100;
 }

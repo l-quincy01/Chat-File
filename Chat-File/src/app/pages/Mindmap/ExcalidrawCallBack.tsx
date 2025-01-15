@@ -13,9 +13,7 @@ export default function ExcalidrawCallBack() {
   const fixedDefinition = `flowchart TD
     A[Christmas] -->|Get money| B(Go shopping)
     B --> C{Let me think}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[Car]`;
+  `;
 
   const [mermaidData, setMermaidData] = useState<MermaidData>({
     definition: fixedDefinition,
